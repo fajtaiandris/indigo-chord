@@ -8,9 +8,6 @@
 </svelte:head>
 
 <section>
-	<h1>
-		Indigo Chord
-	</h1>
 	<ChordDemo/>
 </section>
 
@@ -21,9 +18,5 @@
 		justify-content: center;
 		align-items: center;
 		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
 	}
 </style>

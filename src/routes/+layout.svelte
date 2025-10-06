@@ -15,6 +15,9 @@
   }
 </script>
 
+<header>
+  <div class="brand">indigo_chord</div>
+</header>
 <main>
 	<slot />
 </main>
@@ -30,4 +33,13 @@
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
+  header {
+    background-color: var(--indigo);
+    color: #fff;
+    padding: 1rem 2rem;
+  }
+  .brand {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
 </style>

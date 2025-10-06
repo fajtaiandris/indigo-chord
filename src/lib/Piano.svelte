@@ -1,5 +1,4 @@
-<!-- Piano.svelte (no TS) -->
-<script>
+<script lang="ts">
   import { createEventDispatcher } from 'svelte';
 
   export let startMidi = 60; // C4
@@ -10,10 +9,10 @@
   const BLACK_WIDTH = 22;
   const BLACK_HEIGHT = 100;
 
-  const semitoneToWhiteIndex = (s) =>
+  const semitoneToWhiteIndex = (s: number) =>
     [0, 0, 1, 1, 2, 3, 3, 4, 4, 5, 5, 6][s];
 
-  let activeNotes = [];
+  let activeNotes: number[] = [];
   const dispatch = createEventDispatcher();
 
   // recompute layout when props change
@@ -56,7 +55,7 @@
 
   $: totalWidth = 7 * octaves * WHITE_WIDTH;
 
-  function toggle(midi) {
+  function toggle(midi: number) {
     if (activeNotes.includes(midi)) {
       activeNotes = activeNotes.filter((n) => n !== midi);
     } else {
@@ -93,8 +92,8 @@
             border-bottom-left-radius:4px;
             border-bottom-right-radius:4px;
             transition:transform 60ms ease, box-shadow 120ms ease;
-            background:{activeNotes.includes(k.midi) ? '#4da3ff' : '#111'};
-            box-shadow:{activeNotes.includes(k.midi) ? '0 0 0 2px #4da3ff inset' : 'none'};
+            background:{activeNotes.includes(k.midi) ? 'var(--indigo)' : '#111'};
+            box-shadow:{activeNotes.includes(k.midi) ? '0 0 0 2px var(--indigo) inset' : 'none'};
           "
         />
       {:else}
@@ -117,8 +116,8 @@
             border-bottom-left-radius:4px;
             border-bottom-right-radius:4px;
             transition:transform 60ms ease, box-shadow 120ms ease;
-            background:{activeNotes.includes(k.midi) ? '#bcdcff' : '#fff'};
-            box-shadow:{activeNotes.includes(k.midi) ? '0 0 0 2px #4da3ff inset' : 'inset 0 -2px 0 #ddd'};
+            background:{activeNotes.includes(k.midi) ? 'var(--light-indigo)' : '#fff'};
+            box-shadow:{activeNotes.includes(k.midi) ? '0 0 0 2px var(--indigo) inset' : 'inset 0 -2px 0 #ddd'};
           "
         />
       {/if}
