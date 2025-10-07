@@ -1,104 +1,38 @@
 @import '@fontsource/fira-mono';
 
 :root {
-  font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --font-mono: 'Fira Mono', monospace;
+  font-family: 'Fira Mono', monospace;
 
-  /* Dark Indigo palette */
-  --pure-white: #ffffff;
-  --primary-color: #2e2e2e;     /* very dark navy/indigo */
-  --secondary-color: #777777;   /* indigo 950 */
-  --tertiary-color: #827cbe;    /* indigo 800 */
-  --accent-color: #6366f1;      /* indigo 500 for highlights */
-  --indigo: #6b4bcc;
-  --light-indigo: #907ccb;
-  
-  --background-without-opacity: rgba(15, 23, 42, 0.85);
-  --column-width: 42rem;
-  --column-margin-top: 4rem;
+  --default: #f0f0f0;
+  --default-foreground: #3c3c3c;
+
+  --inverse: var(--default-foreground);
+  --inverse-foreground: var(--default);
+
+  --primary: #6b4bcc;
+  --primary-foreground: var(--default);
+  --primary-highlight: #907ccb;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-  background-color: var(--primary-color);
-  background: white;
+  background-color: var(--default);
+  color: var(--default-foreground)
 }
 
-body::before {
-  content: '';
-  width: 80vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 10vw;
-  z-index: -1;
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    var(--pure-white) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  opacity: 0.05;
-}
-
-#svelte {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-h1,
-h2,
-p {
-  font-weight: 400;
-}
-
-p {
-  line-height: 1.5;
-}
-
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-h1 {
-  font-size: 2rem;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1rem;
-}
-
-pre {
-  font-size: 16px;
-  font-family: var(--font-mono);
-  background-color: rgba(255, 255, 255, 0.45);
-  border-radius: 3px;
-  box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-  padding: 0.5em;
-  overflow-x: auto;
-  color: var(--text-color);
-}
-
-input,
 button {
-  font-size: inherit;
+  background-color: var(--inverse);
+  color: var(--inverse-foreground);
+  border: none;
+  padding: 0.5rem 1rem;
+  line-height: 1.1;
   font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
 }
 
-button:focus:not(:focus-visible) {
-  outline: none;
-}
-
-@media (min-width: 720px) {
-  h1 {
-    font-size: 2.4rem;
-  }
+button:hover {
+  background-color: var(--default);
+  color: var(--default-foreground);
 }

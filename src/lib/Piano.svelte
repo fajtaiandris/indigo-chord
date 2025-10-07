@@ -92,8 +92,8 @@
             border-bottom-left-radius:4px;
             border-bottom-right-radius:4px;
             transition:transform 60ms ease, box-shadow 120ms ease;
-            background:{activeNotes.includes(k.midi) ? 'var(--indigo)' : '#111'};
-            box-shadow:{activeNotes.includes(k.midi) ? '0 0 0 2px var(--indigo) inset' : 'none'};
+            background:{activeNotes.includes(k.midi) ? 'var(--primary)' : '#111'};
+            box-shadow:{activeNotes.includes(k.midi) ? '0 0 0 2px var(--primary) inset' : 'none'};
           "
         />
       {:else}
@@ -116,8 +116,8 @@
             border-bottom-left-radius:4px;
             border-bottom-right-radius:4px;
             transition:transform 60ms ease, box-shadow 120ms ease;
-            background:{activeNotes.includes(k.midi) ? 'var(--light-indigo)' : '#fff'};
-            box-shadow:{activeNotes.includes(k.midi) ? '0 0 0 2px var(--indigo) inset' : 'inset 0 -2px 0 #ddd'};
+            background:{activeNotes.includes(k.midi) ? 'var(--primary-highlight)' : '#fff'};
+            box-shadow:{activeNotes.includes(k.midi) ? '0 0 0 2px var(--primary) inset' : 'inset 0 -2px 0 #ddd'};
           "
         />
       {/if}

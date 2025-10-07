@@ -19,10 +19,17 @@
 
 </script>
 
-<p style="font-size:1.25rem; font-weight:600;">{name || 'Select keys'}</p>
+<p class="chord-name">{name || 'Select keys'}</p>
 
 <Piano
   startMidi={36}
   octaves={3}
   on:change={(e) => (notes = e.detail.notes)}
 />
+
+<style>
+  .chord-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+</style>

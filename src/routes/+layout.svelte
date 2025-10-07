@@ -16,7 +16,8 @@
 </script>
 
 <header>
-  <div class="brand">indigo_chord</div>
+  <span class="brand">indigo_chord</span>
+  <a href="https://github.com/fajtaiandris/indigo-chord"><button>Github</button></a>
 </header>
 <main>
 	<slot />
@@ -34,12 +35,15 @@
 		box-sizing: border-box;
 	}
   header {
-    background-color: var(--indigo);
-    color: #fff;
-    padding: 1rem 2rem;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   .brand {
-    font-size: 1.25rem;
     font-weight: bold;
+    font-size: 1.25rem;
   }
 </style>
