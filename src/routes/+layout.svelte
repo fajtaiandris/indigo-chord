@@ -35,8 +35,9 @@
 		box-sizing: border-box;
 	}
   header {
-    background-color: var(--primary);
-    color: var(--primary-foreground);
+    background-color: white;
+    border-bottom: 1px solid var(--default-foreground);
+    color: var(--default-foreground);
     padding: 0.75rem 2rem;
     display: flex;
     align-items: center;

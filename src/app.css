@@ -24,7 +24,8 @@ body {
 button {
   background-color: var(--inverse);
   color: var(--inverse-foreground);
-  border: none;
+  border-color: var(--default-foreground);
+  border: 1px solid;
   padding: 0.5rem 1rem;
   line-height: 1.1;
   font-family: inherit;
