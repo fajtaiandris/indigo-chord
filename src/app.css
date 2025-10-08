@@ -37,3 +37,43 @@ button:hover {
   background-color: var(--default);
   color: var(--default-foreground);
 }
+
+aside[role="note"] {
+  background-color: white;
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: var(--default-foreground);
+  border: var(--primary-highlight) 1px solid;
+  box-shadow: 4px 4px 0px var(--primary);
+}
+aside[role="note"]::before {
+  content: "TIP";
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.125rem 0.4rem;
+  font-weight: bold;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 1rem;
+}
+
+/* --- UTILITY --- */
+
+.visible-on-mobile-portrait {
+  display: none;
+}
+@media (max-width: 700px) and (orientation: portrait) {
+  .visible-on-mobile-portrait {
+    display: block;
+  }
+}

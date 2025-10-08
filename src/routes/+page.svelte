@@ -9,14 +9,7 @@
 
 <section>
 	<ChordDemo/>
+	<aside role="note" class="visible-on-mobile-portrait">
+		Rotate your device to landscape mode for a better experience.
+	</aside>
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-</style>

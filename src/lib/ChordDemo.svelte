@@ -24,8 +24,8 @@
   <div class="keyboard__bottom">
     <div class="settings">
       <button>Mute</button>
-      <button>Play</button>
-      <button>Random</button>
+      <button>▶</button>
+      <button>⚂</button>
     </div>
     <div class="keys-wrapper">
       <Piano
@@ -50,7 +50,6 @@
     max-width: 100%;
     background-color: var(--inverse);
     border:1px solid #333;
-    border-radius:6px;
   }
 
   .keyboard__top {
