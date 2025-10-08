@@ -73,6 +73,8 @@
   >
     {#each keys as k}
       {#if k.isBlack}
+        <!-- svelte-ignore a11y-interactive-supports-focus -->
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
           role="button"
           aria-pressed={activeNotes.includes(k.midi)}
@@ -92,11 +94,13 @@
             border-bottom-left-radius:4px;
             border-bottom-right-radius:4px;
             transition:transform 60ms ease, box-shadow 120ms ease;
-            background:{activeNotes.includes(k.midi) ? 'var(--primary)' : '#111'};
+            background:{activeNotes.includes(k.midi) ? 'var(--primary)' : 'var(--inverse)'};
             box-shadow:{activeNotes.includes(k.midi) ? '0 0 0 2px var(--primary) inset' : 'none'};
           "
         />
       {:else}
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-interactive-supports-focus -->
         <div
           role="button"
           aria-pressed={activeNotes.includes(k.midi)}
@@ -116,8 +120,7 @@
             border-bottom-left-radius:4px;
             border-bottom-right-radius:4px;
             transition:transform 60ms ease, box-shadow 120ms ease;
-            background:{activeNotes.includes(k.midi) ? 'var(--primary-highlight)' : '#fff'};
-            box-shadow:{activeNotes.includes(k.midi) ? '0 0 0 2px var(--primary) inset' : 'inset 0 -2px 0 #ddd'};
+            background:{activeNotes.includes(k.midi) ? 'var(--primary-highlight)' : 'lightgray'};
           "
         />
       {/if}

@@ -1,4 +1,5 @@
 @import '@fontsource/fira-mono';
+@import '@fontsource/fusion-pixel-8px-proportional-kr';
 
 :root {
   font-family: 'Fira Mono', monospace;
@@ -12,6 +13,10 @@
   --primary: #6b4bcc;
   --primary-foreground: var(--default);
   --primary-highlight: #907ccb;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -41,20 +46,22 @@ button:hover {
 aside[role="note"] {
   background-color: white;
   width: 100%;
-  max-width: 400px;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   font-size: 0.9rem;
   color: var(--default-foreground);
   border: var(--primary-highlight) 1px solid;
   box-shadow: 4px 4px 0px var(--primary);
+  display: flex;
+  gap: 0.5rem;
 }
 aside[role="note"]::before {
-  content: "TIP";
+  content: "[i]";
+  height: fit-content;
   font-size: 0.8rem;
-  margin-right: 0.5rem;
+  display: block;
   background-color: var(--primary);
   color: var(--primary-foreground);
-  padding: 0.125rem 0.4rem;
+  padding: 0.125rem 0.125rem;
   font-weight: bold;
 }
 
@@ -70,10 +77,15 @@ section {
 /* --- UTILITY --- */
 
 .visible-on-mobile-portrait {
-  display: none;
+  display: none !important;
 }
+
 @media (max-width: 700px) and (orientation: portrait) {
   .visible-on-mobile-portrait {
-    display: block;
+    display: flex !important;
   }
+}
+
+.font-pixel {
+  font-family: 'Fusion Pixel 8px Proportional KR', sans-serif;
 }

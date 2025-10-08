@@ -11,6 +11,9 @@ importers:
       '@fontsource/fira-mono':
         specifier: ^4.5.0
         version: 4.5.10
+      '@fontsource/fusion-pixel-8px-proportional-kr':
+        specifier: ^5.2.5
+        version: 5.2.5
       '@sveltejs/vite-plugin-svelte':
         specifier: ^6.2.1
         version: 6.2.1(svelte@3.59.2)(vite@3.2.11(sass@1.93.2))
@@ -78,6 +81,9 @@ packages:
 
   '@fontsource/fira-mono@4.5.10':
     resolution: {integrity: sha512-bxUnRP8xptGRo8YXeY073DSpfK74XpSb0ZyRNpHV9WvLnJ7TwPOjZll8hTMin7zLC6iOp59pDZ8EQDj1gzgAQQ==}
+
+  '@fontsource/fusion-pixel-8px-proportional-kr@5.2.5':
+    resolution: {integrity: sha512-yI+7/CtMlnJADfN05qi2ybTbr104bY/eaXolkjPPSDT8liiacWCchUYsr9Wl734hCWtWQJ4Gpsf78j7zgUtIDw==}
 
   '@iarna/toml@2.2.5':
     resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
@@ -1194,6 +1200,8 @@ snapshots:
   '@fastify/busboy@2.1.1': {}
 
   '@fontsource/fira-mono@4.5.10': {}
+
+  '@fontsource/fusion-pixel-8px-proportional-kr@5.2.5': {}
 
   '@iarna/toml@2.2.5': {}
 

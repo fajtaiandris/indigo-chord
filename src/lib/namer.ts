@@ -785,3 +785,16 @@ const harmonyTable: string[][][] = [
     }
   };
   
+  export const getHarmonyType = (midiNotes: number[]): 'note' | 'interval' | 'triad' | 'complex' | undefined => {
+    if (midiNotes.length === 0) {
+      return undefined;
+    } else if (midiNotes.length === 1) {
+      return 'note';
+    } else if (midiNotes.length === 2) {
+      return 'interval';
+    } else if (midiNotes.length === 3) {
+      return 'triad';
+    } else {
+     return 'complex'
+    }
+  }

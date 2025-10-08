@@ -1,10 +1,11 @@
 <script lang="ts">
   import Piano from './Piano.svelte';
-  import { chordName } from './namer';
+  import { chordName, getHarmonyType } from './namer';
   import { playMidiSequence } from './playMidiSequence';
 
   let notes: number[] = [];
   $: name = notes.length ? chordName(notes) : '';
+  $: type = getHarmonyType(notes);
 
   let current: ReturnType<typeof playMidiSequence> | null = null;
   $: if (notes.length) {
@@ -20,11 +21,21 @@
 </script>
 
 <div class="keyboard">
-  <div class="keyboard__top">{name || 'Select keys'}</div>
+  <div class="keyboard__display font-pixel">
+    <div class="keyboard__display__name">
+      {name || 'Select keys'}
+    </div>
+    <ul class="keyboard__display__legend">
+      <li data-state={type === 'note' && "on"}>note</li>
+      <li data-state={type === 'interval' && "on"}>interval</li>
+      <li data-state={type === 'triad' && "on"}>triad</li>
+      <li data-state={type === 'complex' && "on"}>complex</li>
+    </ul>
+  </div>
   <div class="keyboard__bottom">
     <div class="settings">
       <button>Mute</button>
-      <button>▶</button>
+      <button class="play-button">▶</button>
       <button>⚂</button>
     </div>
     <div class="keys-wrapper">
@@ -49,14 +60,40 @@
     width: fit-content;
     max-width: 100%;
     background-color: var(--inverse);
-    border:1px solid #333;
+    border: 1px solid black;
   }
 
-  .keyboard__top {
+  .keyboard__display {
+    color: lightblue;
+    background-color: var(--primary);
+    width: 100%;
+    max-width: 300px;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .keyboard__display__name {
+    width: 100%;
+    text-align: center;
     font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--inverse-foreground);
-    padding: 0.5rem;
+  }
+
+  .keyboard__display__legend {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    list-style: none;
+    padding: 0.2rem 0.5rem;
+    margin: 0;
+    color: var(--primary-highlight);
+  }
+
+  .keyboard__display__legend li[data-state='on'] {
+    color: lightblue;
   }
 
   .keyboard__bottom {
@@ -80,7 +117,20 @@
     justify-content: center;
   }
 
-  @media (max-width: 750px) {
+  .play-button {
+    color: lawngreen;
+    border-color: var(--default);
+  }
+
+  @media (max-width: 700px) {
+    .keyboard__bottom {
+      flex-direction: column;
+    }
+
+    .settings {
+      flex-direction: row;
+    }
+
     .keys-wrapper {
       justify-content: start;
     }
