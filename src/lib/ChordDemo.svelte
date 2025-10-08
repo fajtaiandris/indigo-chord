@@ -35,7 +35,7 @@
   <div class="keyboard__bottom">
     <div class="settings">
       <button>Mute</button>
-      <button class="play-button">▶</button>
+      <button class="color-neon-green">▶</button>
       <button>⚂</button>
     </div>
     <div class="keys-wrapper">
@@ -115,11 +115,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-  }
-
-  .play-button {
-    color: lawngreen;
-    border-color: var(--default);
   }
 
   @media (max-width: 700px) {

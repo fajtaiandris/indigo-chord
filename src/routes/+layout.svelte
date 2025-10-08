@@ -16,7 +16,7 @@
 </script>
 
 <header>
-  <span class="brand">indigo_chord</span>
+  <span class="brand | font-pixel">indigo_chord</span>
   <a href="https://github.com/fajtaiandris/indigo-chord"><button>Github</button></a>
 </header>
 <main>

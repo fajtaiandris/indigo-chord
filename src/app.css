@@ -13,6 +13,8 @@
   --primary: #6b4bcc;
   --primary-foreground: var(--default);
   --primary-highlight: #907ccb;
+
+  --neon-green: lawngreen;
 }
 
 * {
@@ -30,7 +32,7 @@ button {
   background-color: var(--inverse);
   color: var(--inverse-foreground);
   border-color: var(--default-foreground);
-  border: 1px solid;
+  border: 1px solid var(--default);
   padding: 0.5rem 1rem;
   line-height: 1.1;
   font-family: inherit;
@@ -41,6 +43,7 @@ button {
 button:hover {
   background-color: var(--default);
   color: var(--default-foreground);
+  border-color: var(--inverse)
 }
 
 aside[role="note"] {
@@ -88,4 +91,8 @@ section {
 
 .font-pixel {
   font-family: 'Fusion Pixel 8px Proportional KR', sans-serif;
+}
+
+.color-neon-green {
+  color: var(--neon-green);
 }
