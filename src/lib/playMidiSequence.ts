@@ -1,9 +1,4 @@
-// Play an array of MIDI notes as a timed sequence using the Web Audio API.
-// Non-blocking: returns immediately with a { stop } handle.
-//
-// Example:
-// const handle = playMidiSequence([60, 62, 64, 65, 67], { bpm: 120, waveform: 'sine' });
-// handle.stop(); // optional, to cut it short
+import { isPlaying } from "./store";
 
 export type PlayOptions = {
   bpm?: number;                // beats per minute (default 120)
@@ -45,6 +40,7 @@ function applyADSR(
  * Plays the given MIDI notes sequentially.
  * Returns immediately with a handle you can use to stop playback.
  */
+
 export function playMidiSequence(
   notes: number[],
   opts: PlayOptions = {}
@@ -52,17 +48,15 @@ export function playMidiSequence(
   if (!Array.isArray(notes) || notes.length === 0) return;
 
   const audio = ensureCtx();
-  // Try to unlock audio context if possible (should be from a user gesture)
-  if (audio.state !== 'running') {
-    // don't await — keep this non-blocking
+  if (audio.state !== "running") {
     void audio.resume().catch(() => {});
   }
 
   const {
-    bpm = 120,
-    noteLengthBeats = 0.9, // slightly shorter than a full beat to leave space
-    gapBeats = 0.1,
-    waveform = 'sine',
+    bpm = 300,
+    noteLengthBeats = 0.25,
+    gapBeats = 0,
+    waveform = "triangle",
     adsr = { attack: 0.005, decay: 0.05, sustain: 1, release: 0.92 }
   } = opts;
 
@@ -87,9 +81,9 @@ export function playMidiSequence(
     osc.frequency.value = midiToFreq(m);
     osc.connect(gain).connect(audio.destination);
 
-    const tail = applyADSR(gain, t, noteDurSec, adsr);
+    const tail = applyADSR(gain, t, noteDurSec, adsr); // returns dur + release
     osc.start(t);
-    osc.stop(t + tail + 0.01);
+    osc.stop(t + tail + 0.01); // small safety margin
 
     oscillators.push(osc);
     gains.push(gain);
@@ -98,11 +92,28 @@ export function playMidiSequence(
   }
 
   let stopped = false;
+
+  // mark active immediately
+  isPlaying.set(true);
+
+  // when all oscillators have ended, flip the flag
+  let remaining = oscillators.length;
+  for (const o of oscillators) {
+    // 'ended' fires after the scheduled stop (i.e., after the release)
+    o.addEventListener("ended", () => {
+      remaining--;
+      if (remaining === 0 && !stopped) {
+        isPlaying.set(false);
+      }
+    });
+  }
+
   return {
     stop: () => {
       if (stopped) return;
       stopped = true;
-      // Fade out quickly, then stop oscillators
+      isPlaying.set(false); // immediate UI feedback
+
       const now = audio.currentTime;
       for (const g of gains) {
         try {

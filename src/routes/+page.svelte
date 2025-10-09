@@ -1,5 +1,5 @@
 <script>
-	import ChordDemo from '$lib/ChordDemo.svelte';
+	import Keyboard from '../components/Keyboard.svelte';
 </script>
 
 <svelte:head>
@@ -11,5 +11,5 @@
 	<aside role="note" class="visible-on-mobile-portrait">
 		Rotate your device to landscape mode for a better experience.
 	</aside>
-	<ChordDemo/>
+	<Keyboard/>
 </section>
