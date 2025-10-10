@@ -69,6 +69,17 @@ aside[role="note"]::before {
   font-weight: bold;
 }
 
+aside[role="note"][data-variant="warning"] {
+  border-color: var(--warning-highlight);
+  box-shadow: 4px 4px 0px var(--warning);
+}
+
+aside[role="note"][data-variant="warning"]::before {
+  content: "[!]";
+  background-color: var(--warning);
+  color: var(--warning-foreground);
+}
+
 section {
   display: flex;
   flex-direction: column;

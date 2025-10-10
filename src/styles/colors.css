@@ -7,6 +7,8 @@
     --indigo: #6b4bcc;
     --indigo-light: #907ccb;
     --neon-green: lawngreen;
+    --orange: rgb(236, 129, 47);
+    --orange-light: rgb(255, 189, 89);
 
     --default: var(--almost-white);
     --default-foreground: var(--almost-black);
@@ -20,13 +22,17 @@
     --primary-foreground: var(--almost-white);
     --primary-highlight: var(--indigo-light);
 
-    --piano-white: var(--grey);
-    --piano-black: var(--almost-black);
-    --piano-border-white: var(--black);
-    --piano-border-black: var(--black);
+    --warning: var(--orange);
+    --warning-foreground: var(--almost-white);
+    --warning-highlight: var(--orange-light);
 
-    --piano-active-white: var(--primary-highlight);
-    --piano-active-black: var(--primary);
+    --keys-white: var(--grey);
+    --keys-black: var(--almost-black);
+    --keys-border-white: var(--black);
+    --keys-border-black: var(--black);
+
+    --keys-active-white: var(--primary-highlight);
+    --keys-active-black: var(--primary);
 }
 
 
@@ -40,6 +46,6 @@
 
         --contrast: var(--black);
 
-        --piano-black: var(--black);
+        --keys-black: var(--black);
     }
 }

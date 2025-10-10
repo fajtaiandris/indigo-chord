@@ -1,14 +1,18 @@
 <script lang="ts">
-    import { isPlaying } from '$lib/store';
+  import { isPlaying } from '$lib/store';
 
-    export let isMuted: boolean;
-    export let toggleMute: () => void;
-    export let play: () => void;
+  export let isMuted: boolean;
+  export let toggleMute: () => void;
+  export let play: () => void;
 </script>
 
 <div class="settings">
-    <button on:click={toggleMute} data-state={isMuted && "on"}>Mute</button>
-    <button on:click={play} data-state={$isPlaying && "playing"} class="play-button | color-neon-green">▶</button>
+  <button on:click={toggleMute} data-state={isMuted && 'on'}>Mute</button>
+  <button
+    on:click={play}
+    data-state={$isPlaying && 'playing'}
+    class="play-button | color-neon-green">▶</button
+  >
 </div>
 
 <style>
@@ -18,14 +22,20 @@
     flex-direction: column;
   }
 
-  .play-button[data-state="playing"] {
+  .play-button[data-state='playing'] {
     animation: pulse 0.3s infinite;
   }
 
   @keyframes pulse {
-    0% { color: var(--almost-black); }
-    50% { color: var(--neon-green); }
-    100% { color: var(--almost-black); }
+    0% {
+      color: var(--almost-black);
+    }
+    50% {
+      color: var(--neon-green);
+    }
+    100% {
+      color: var(--almost-black);
+    }
   }
 
   @media (max-width: 700px) {

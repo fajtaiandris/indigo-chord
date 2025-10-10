@@ -1,18 +1,18 @@
 <script lang="ts">
-    export let name: string | undefined;
-    export let type: string | undefined;
+  export let name: string | undefined;
+  export let type: string | undefined;
 </script>
 
 <div class="display font-pixel">
-    <div class="display__name">
-        {name || 'Select keys'}
-    </div>
-    <ul class="display__legend">
-        <li data-state={type === 'note' && "on"}>note</li>
-        <li data-state={type === 'interval' && "on"}>interval</li>
-        <li data-state={type === 'triad' && "on"}>triad</li>
-        <li data-state={type === 'complex' && "on"}>complex</li>
-    </ul>
+  <div class="display__name">
+    {name || 'Select keys'}
+  </div>
+  <ul class="display__legend">
+    <li data-state={type === 'note' && 'on'}>note</li>
+    <li data-state={type === 'interval' && 'on'}>interval</li>
+    <li data-state={type === 'triad' && 'on'}>triad</li>
+    <li data-state={type === 'complex' && 'on'}>complex</li>
+  </ul>
 </div>
 
 <style>

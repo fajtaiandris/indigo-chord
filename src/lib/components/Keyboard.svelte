@@ -34,7 +34,6 @@
     current?.stop();
     current = playMidiSequence(notes);
   }
-
 </script>
 
 <div class="keyboard">
@@ -42,16 +41,10 @@
   <div class="keyboard__bottom">
     <ConfigButtons {isMuted} {toggleMute} {play} />
     <div class="keys-wrapper">
-      <Keys
-        startMidi={36}
-        octaves={3}
-        on:change={(e) => (notes = e.detail.notes)}
-      />
+      <Keys startMidi={36} octaves={3} on:change={(e) => (notes = e.detail.notes)} />
     </div>
   </div>
 </div>
-
-
 
 <style>
   .keyboard {
@@ -62,7 +55,7 @@
     padding: 0.5rem 1rem;
     width: fit-content;
     max-width: 100%;
-    background-color: var(--piano-black);
+    background-color: var(--keys-black);
     border: 6px outset black;
     border-radius: 4px;
   }
