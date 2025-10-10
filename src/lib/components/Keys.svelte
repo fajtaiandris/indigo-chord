@@ -1,8 +1,8 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
 
-  export let startMidi = 60; // C4
-  export let octaves = 3;
+  export let startMidi: number = 60;
+  export let octaves: number = 3;
 
   const dispatch = createEventDispatcher();
   let activeNotes: number[] = [];

@@ -1,6 +1,6 @@
 <script lang="ts">
-    export let name = '';
-    export let type = '';
+    export let name: string | undefined;
+    export let type: string | undefined;
 </script>
 
 <div class="display font-pixel">

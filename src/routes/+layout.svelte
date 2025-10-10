@@ -2,7 +2,7 @@
   import { webVitals } from '$lib/vitals';
   import { browser } from '$app/env';
   import { page } from '$app/stores';
-  import '../app.css';
+  import '../styles/app.css';
 
   let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 
@@ -35,7 +35,7 @@
 		box-sizing: border-box;
 	}
   header {
-    background-color: white;
+    background-color: var(--contrast);
     border-bottom: 1px solid var(--default-foreground);
     color: var(--default-foreground);
     padding: 0.75rem 2rem;

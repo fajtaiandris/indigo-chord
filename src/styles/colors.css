@@ -1,0 +1,45 @@
+:root {
+    --almost-white: #f0f0f0;
+    --almost-black: #3c3c3c;
+    --grey: lightgrey;
+    --black: rgb(40, 40, 40);
+    --white: white;
+    --indigo: #6b4bcc;
+    --indigo-light: #907ccb;
+    --neon-green: lawngreen;
+
+    --default: var(--almost-white);
+    --default-foreground: var(--almost-black);
+
+    --inverse: var(--default-foreground);
+    --inverse-foreground: var(--default);
+
+    --contrast: var(--white);
+
+    --primary: var(--indigo);
+    --primary-foreground: var(--almost-white);
+    --primary-highlight: var(--indigo-light);
+
+    --piano-white: var(--grey);
+    --piano-black: var(--almost-black);
+    --piano-border-white: var(--black);
+    --piano-border-black: var(--black);
+
+    --piano-active-white: var(--primary-highlight);
+    --piano-active-black: var(--primary);
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --default: var(--almost-black);
+        --default-foreground: var(--almost-white);
+
+        --inverse: var(--default-foreground);
+        --inverse-foreground: var(--default);
+
+        --contrast: var(--black);
+
+        --piano-black: var(--black);
+    }
+}

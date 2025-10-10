@@ -1,9 +1,9 @@
 <script lang="ts">
   import Keys from './Keys.svelte';
-  import { chordName, getHarmonyType } from '../lib/namer';
-  import { playMidiSequence } from '../lib/playMidiSequence';
+  import { chordName, getHarmonyType } from '$lib/logic/namer';
+  import { playMidiSequence } from '$lib/logic/playMidiSequence';
   import Display from './Display.svelte';
-  import { isPlaying } from '../lib/store';
+  import ConfigButtons from './ConfigButtons.svelte';
 
   let notes: number[] = [];
   let isMuted = false;
@@ -40,10 +40,7 @@
 <div class="keyboard">
   <Display {name} {type} />
   <div class="keyboard__bottom">
-    <div class="settings">
-      <button on:click={toggleMute} data-state={isMuted && "on"}>Mute</button>
-      <button on:click={play} data-state={$isPlaying && "playing"} class="play-button | color-neon-green">▶</button>
-    </div>
+    <ConfigButtons {isMuted} {toggleMute} {play} />
     <div class="keys-wrapper">
       <Keys
         startMidi={36}
@@ -65,7 +62,7 @@
     padding: 0.5rem 1rem;
     width: fit-content;
     max-width: 100%;
-    background-color: var(--inverse);
+    background-color: var(--piano-black);
     border: 6px outset black;
     border-radius: 4px;
   }
@@ -78,12 +75,6 @@
     max-width: 100%;
   }
 
-  .settings {
-    display: flex;
-    gap: 0.5rem;
-    flex-direction: column;
-  }
-
   .keys-wrapper {
     overflow-x: scroll;
     width: 100%;
@@ -91,23 +82,9 @@
     justify-content: center;
   }
 
-  .play-button[data-state="playing"] {
-    animation: pulse 0.3s infinite;
-  }
-
-  @keyframes pulse {
-    0% { color: var(--inverse); }
-    50% { color: var(--neon-green); }
-    100% { color: var(--inverse); }
-  }
-
   @media (max-width: 700px) {
     .keyboard__bottom {
       flex-direction: column;
-    }
-
-    .settings {
-      flex-direction: row;
     }
 
     .keys-wrapper {

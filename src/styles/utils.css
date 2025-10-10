@@ -1,0 +1,17 @@
+.visible-on-mobile-portrait {
+  display: none !important;
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+  .visible-on-mobile-portrait {
+    display: flex !important;
+  }
+}
+
+.font-pixel {
+  font-family: 'Fusion Pixel 8px Proportional KR', sans-serif;
+}
+
+.color-neon-green {
+  color: var(--neon-green);
+}

@@ -1,33 +1,15 @@
 @import '@fontsource/fira-mono';
 @import '@fontsource/fusion-pixel-8px-proportional-kr';
+@import 'colors.css';
+@import 'utils.css';
 
 :root {
   font-family: 'Fira Mono', monospace;
-
-  --default: #f0f0f0;
-  --default-foreground: #3c3c3c;
-
-  --inverse: var(--default-foreground);
-  --inverse-foreground: var(--default);
-
-  --primary: #6b4bcc;
-  --primary-foreground: var(--default);
-  --primary-highlight: #907ccb;
-
-  --neon-green: lawngreen;
 
   --white-w: 34px;
   --white-h: 160px;
   --black-w: 22px;
   --black-h: 100px;
-
-  --piano-white: lightgray;
-  --piano-black: var(--inverse);
-  --piano-border-white: #333;
-  --piano-border-black: #111;
-
-  --piano-active-white: var(--primary-highlight);
-  --piano-active-black: var(--primary);
 }
 
 * {
@@ -42,10 +24,9 @@ body {
 }
 
 button {
-  background-color: var(--inverse);
-  color: var(--inverse-foreground);
-  border-color: var(--default-foreground);
-  border: 1px solid var(--default);
+  background-color: var(--almost-black);
+  color: var(--almost-white);
+  border: 1px solid var(--almost-white);
   padding: 0.5rem 1rem;
   line-height: 1.1;
   font-family: inherit;
@@ -54,9 +35,9 @@ button {
 }
 
 button:hover {
-  background-color: var(--default);
-  color: var(--default-foreground);
-  border-color: var(--inverse)
+  background-color: var(--almost-white);
+  color: var(--almost-black);
+  border-color: var(--almost-black)
 }
 
 button[data-state="on"] {
@@ -66,7 +47,7 @@ button[data-state="on"] {
 }
 
 aside[role="note"] {
-  background-color: white;
+  background-color: var(--contrast);
   width: 100%;
   padding: 1rem;
   font-size: 0.9rem;
@@ -95,24 +76,4 @@ section {
   align-items: center;
   flex: 1;
   gap: 1rem;
-}
-
-/* --- UTILITY --- */
-
-.visible-on-mobile-portrait {
-  display: none !important;
-}
-
-@media (max-width: 700px) and (orientation: portrait) {
-  .visible-on-mobile-portrait {
-    display: flex !important;
-  }
-}
-
-.font-pixel {
-  font-family: 'Fusion Pixel 8px Proportional KR', sans-serif;
-}
-
-.color-neon-green {
-  color: var(--neon-green);
 }

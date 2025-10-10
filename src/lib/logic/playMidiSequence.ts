@@ -1,4 +1,4 @@
-import { isPlaying } from "./store";
+import { isPlaying } from "../store";
 
 export type PlayOptions = {
   bpm?: number;                // beats per minute (default 120)

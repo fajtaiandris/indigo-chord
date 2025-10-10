@@ -1,5 +1,5 @@
 <script>
-	import Keyboard from '../components/Keyboard.svelte';
+	import Keyboard from '$lib/components/Keyboard.svelte';
 </script>
 
 <svelte:head>
