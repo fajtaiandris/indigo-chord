@@ -1,13 +1,13 @@
 <script lang="ts">
   import Keys from './Keys.svelte';
   import { chordName, getHarmonyType } from '$lib/logic/namer';
-  import { playMidiSequence } from '$lib/logic/playMidiSequence';
+  import { instrumentPresets, playMidi } from '$lib/logic/audio';
   import Display from './Display.svelte';
   import ConfigButtons from './ConfigButtons.svelte';
 
   let notes: number[] = [];
   let isMuted = false;
-  let current: ReturnType<typeof playMidiSequence> | null = null;
+  let current: ReturnType<typeof playMidi> | null = null;
 
   function toggleMute() {
     isMuted = !isMuted;
@@ -15,7 +15,7 @@
       current?.stop();
       current = null;
     } else if (notes.length) {
-      current = playMidiSequence(notes);
+      current = playMidi(notes, { instrument: instrumentPresets.organ });
     }
   }
 
@@ -24,7 +24,7 @@
       isMuted = false;
     }
     current?.stop();
-    current = playMidiSequence(notes);
+    current = playMidi(notes, { instrument: instrumentPresets.organ });
   }
 
   $: name = notes.length ? chordName(notes) : '';
@@ -32,7 +32,7 @@
 
   $: if (notes.length && !isMuted) {
     current?.stop();
-    current = playMidiSequence(notes);
+    current = playMidi(notes, { instrument: instrumentPresets.organ });
   }
 </script>
 
