@@ -1,3 +1,9 @@
 # indigo_chord
 
-Analyze and name chords.
+a tool to analyze and name chords.  
+
+[try it](https://indigo-chord.vercel.app)
+
+## dev
+
+built with `pnpm`, `ts`, `svelte` and the concept of `cube css`.
