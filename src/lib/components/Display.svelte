@@ -3,7 +3,7 @@
   export let type: string | undefined;
 </script>
 
-<div class="display font-pixel">
+<div class="display font-pixel" data-state={name ? 'filled' : 'empty'}>
   <div class="display__name">
     {name || 'Select keys'}
   </div>
@@ -17,7 +17,7 @@
 
 <style>
   .display {
-    color: lightblue;
+    color: var(--neon-blue);
     background-color: var(--primary);
     width: 100%;
     max-width: 300px;
@@ -36,6 +36,11 @@
     font-size: 1.5rem;
   }
 
+  .display[data-state='empty'] .display__name {
+    white-space: nowrap;
+    animation: flicker 1s step-start infinite;
+  }
+
   .display__legend {
     display: flex;
     flex-direction: row;
@@ -48,6 +53,16 @@
   }
 
   .display__legend li[data-state='on'] {
-    color: lightblue;
+    color: var(--neon-blue);
+  }
+
+  @keyframes flicker {
+    0%,
+    100% {
+      color: var(--primary-highlight);
+    }
+    50% {
+      color: var(--neon-blue);
+    }
   }
 </style>
