@@ -15,5 +15,4 @@ built with `pnpm`, `ts`, `svelte` and the concept of `cube css`.
 - guitar neck input
 - analytics
 - refactoring the music theory bits
-- refactoring the audio bits
 - tiny sampler sequencer for quick lofi beats
