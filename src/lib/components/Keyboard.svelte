@@ -1,7 +1,7 @@
 <script lang="ts">
   import Keys from './Keys.svelte';
   import { chordName, getHarmonyType } from '$lib/logic/namer';
-  import { instrumentPresets, playMidi } from '$lib/logic/audio';
+  import { playMidi } from '$lib/logic/audio';
   import Display from './Display.svelte';
   import ConfigButtons from './ConfigButtons.svelte';
 
@@ -15,7 +15,7 @@
       current?.stop();
       current = null;
     } else if (notes.length) {
-      current = playMidi(notes, { instrument: instrumentPresets.organ });
+      current = playMidi(notes, { instrument: 'organ' });
     }
   }
 
@@ -24,7 +24,7 @@
       isMuted = false;
     }
     current?.stop();
-    current = playMidi(notes, { instrument: instrumentPresets.organ });
+    current = playMidi(notes, { instrument: 'organ'});
   }
 
   $: name = notes.length ? chordName(notes) : '';
@@ -32,7 +32,7 @@
 
   $: if (notes.length && !isMuted) {
     current?.stop();
-    current = playMidi(notes, { instrument: instrumentPresets.organ });
+    current = playMidi(notes, { instrument: 'organ'});
   }
 </script>
 
