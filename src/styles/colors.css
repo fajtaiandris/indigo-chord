@@ -1,23 +1,25 @@
 :root {
+    color-scheme: light dark;
+
     --almost-white: #f0f0f0;
     --almost-black: #3c3c3c;
     --grey: lightgrey;
-    --black: rgb(40, 40, 40);
+    --black: rgb(40 40 40);
     --white: white;
     --indigo: #6b4bcc;
     --indigo-light: #907ccb;
     --neon-green: lawngreen;
     --neon-blue: lightblue;
-    --orange: rgb(236, 129, 47);
-    --orange-light: rgb(255, 189, 89);
+    --orange: rgb(236 129 47);
+    --orange-light: rgb(255 189 89);
 
-    --default: var(--almost-white);
-    --default-foreground: var(--almost-black);
+    --default: light-dark(var(--almost-white), var(--almost-black));
+    --default-foreground: light-dark(var(--almost-black), var(--almost-white));
 
-    --inverse: var(--default-foreground);
-    --inverse-foreground: var(--default);
+    --inverse: light-dark(var(--default-foreground), var(--default));
+    --inverse-foreground: light-dark(var(--default), var(--default-foreground));
 
-    --contrast: var(--white);
+    --contrast: light-dark(var(--white), var(--black));
 
     --primary: var(--indigo);
     --primary-foreground: var(--almost-white);
@@ -28,25 +30,10 @@
     --warning-highlight: var(--orange-light);
 
     --keys-white: var(--grey);
-    --keys-black: var(--almost-black);
+    --keys-black: light-dark(var(--almost-black), var(--black));
     --keys-border-white: var(--black);
     --keys-border-black: var(--black);
 
     --keys-active-white: var(--primary-highlight);
     --keys-active-black: var(--primary);
-}
-
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --default: var(--almost-black);
-        --default-foreground: var(--almost-white);
-
-        --inverse: var(--default-foreground);
-        --inverse-foreground: var(--default);
-
-        --contrast: var(--black);
-
-        --keys-black: var(--black);
-    }
 }
