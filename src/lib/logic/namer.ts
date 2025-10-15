@@ -519,7 +519,7 @@ const harmonyTable: string[][][] = [
     return pitchNames[mod12(midiNote + 3)];
   };
   
-  const pitchNameWithOctave = (midiNote: number): string => {
+  export const pitchNameWithOctave = (midiNote: number): string => {
     // Standard MIDI octave formula: floor(n/12) - 1
     return `${pitchName(midiNote)}${Math.floor(midiNote / 12) - 1}`;
   };

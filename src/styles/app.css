@@ -6,10 +6,7 @@
 :root {
   font-family: 'Fira Mono', monospace;
 
-  --white-w: 34px;
-  --white-h: 160px;
-  --black-w: 22px;
-  --black-h: 100px;
+  --stack-space: 1em;
 }
 
 * {
@@ -21,6 +18,13 @@ body {
   margin: 0;
   background-color: var(--default);
   color: var(--default-foreground)
+}
+
+main {
+  padding: 1rem;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 button {
@@ -85,6 +89,4 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 1;
-  gap: 1rem;
 }

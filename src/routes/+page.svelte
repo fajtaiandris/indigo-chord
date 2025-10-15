@@ -7,7 +7,7 @@
   <meta name="description" content="Indigo Chord" />
 </svelte:head>
 
-<section>
+<section class="stack">
   <aside role="note" data-variant="warning">
     This project is under developmnet. Expect bugs and missing features.
   </aside>
