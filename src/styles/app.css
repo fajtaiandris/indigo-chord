@@ -28,26 +28,69 @@ main {
 }
 
 button {
-  background-color: var(--almost-black);
-  color: var(--almost-white);
-  border: 1px solid var(--almost-white);
-  padding: 0.5rem 1rem;
-  line-height: 1.1;
-  font-family: inherit;
-  font-size: inherit;
+  --shadow-intensity: 0.4;
+  --shadow-intensity-2: 0.6;
+  --base-color: var(--almost-black);
+  --base-color-darker: rgb(from var(--base-color) calc(r * var(--shadow-intensity)) calc(g * var(--shadow-intensity)) calc(b * var(--shadow-intensity)));
+  --base-color-darkest: rgb(from var(--base-color) calc(r * var(--shadow-intensity-2)) calc(g * var(--shadow-intensity-2)) calc(b * var(--shadow-intensity-2)));
+  --spacing: 5px;
+  --inner-height: 30px;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  margin: var(--spacing) calc(var(--spacing) * 2) var(--spacing) calc(var(--spacing) * 2);
+  font-size: calc(var(--inner-height) * 0.5);
+  line-height: var(--inner-height);
+  font-family: 'Fusion Pixel 8px Proportional KR', sans-serif;
   cursor: pointer;
-}
+  border: none;
+  white-space: nowrap;
+  color: var(--almost-white);
+  transition: transform 100ms ease;
+ 
+  /* background */
+  &::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(to top, var(--base-color-darker), var(--base-color-darkest));
+    top: calc(var(--spacing) * -1);
+    left: calc(var(--spacing) * -2);
+    width: calc(100% + 4 * var(--spacing));
+    height: calc(var(--inner-height) + 2 * var(--spacing));
+    border-radius: 4px;
+    border: 1px solid var(--almost-black);
+    color: var(--almost-white);
+    z-index: -1;
+  }
 
-button:hover {
-  background-color: var(--almost-white);
-  color: var(--almost-black);
-  border-color: var(--almost-black)
+  /* rounded inside */
+  &::after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(to bottom, var(--base-color-darker), var(--base-color));
+    border-radius: 40px;
+    width: calc(100% + 2 * var(--spacing));
+    height: var(--inner-height);
+    top: calc(var(--inner-height) / - 2);
+    left: calc(var(--spacing) * -1);
+    z-index: -1;
+  }
+
+  &:active {
+    transform: scale(0.9)
+  }
 }
 
 button[data-state="on"] {
-  background-color: var(--primary);
+  --base-color: var(--primary);
   color: var(--primary-foreground);
-  border-color: var(--primary-highlight);
+}
+
+.button--white {
+  --base-color: var(--almost-white);
+  color: var(--almost-black);
+  --shadow-intensity: 0.6;
+  --shadow-intensity-2: 0.9;
 }
 
 aside[role="note"] {
