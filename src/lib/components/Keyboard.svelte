@@ -55,7 +55,7 @@
     padding: 0.5rem 1rem;
     width: fit-content;
     max-width: 100%;
-    background-color: var(--keys-black);
+    background-color: var(--almost-black);
     border: 6px outset black;
     border-radius: 4px;
   }

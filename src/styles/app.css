@@ -28,12 +28,12 @@ main {
 }
 
 button {
-  --shadow-intensity: 0.4;
-  --shadow-intensity-2: 0.6;
+  --shadow-intensity: 0.7;
+  --shadow-intensity-2: 0.8;
   --base-color: var(--almost-black);
   --base-color-darker: rgb(from var(--base-color) calc(r * var(--shadow-intensity)) calc(g * var(--shadow-intensity)) calc(b * var(--shadow-intensity)));
   --base-color-darkest: rgb(from var(--base-color) calc(r * var(--shadow-intensity-2)) calc(g * var(--shadow-intensity-2)) calc(b * var(--shadow-intensity-2)));
-  --spacing: 5px;
+  --spacing: 7px;
   --inner-height: 30px;
   background: transparent;
   position: relative;
@@ -90,7 +90,7 @@ button[data-state="on"] {
 .button--white {
   --base-color: var(--almost-white);
   color: var(--almost-black);
-  --shadow-intensity: 0.6;
+  --shadow-intensity: 0.8;
   --shadow-intensity-2: 0.9;
 }
 
