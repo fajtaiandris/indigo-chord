@@ -60,6 +60,7 @@ button {
     border-radius: 4px;
     border: 1px solid var(--almost-black);
     color: var(--almost-white);
+    box-shadow: 2px 2px 10px var(--black);
     z-index: -1;
   }
 
@@ -91,6 +92,13 @@ button[data-state="on"] {
   color: var(--almost-black);
   --shadow-intensity: 0.6;
   --shadow-intensity-2: 0.9;
+}
+
+/* when presented on a flat surface */
+.button--flat {
+  &::before {
+    box-shadow: none;
+  }
 }
 
 aside[role="note"] {

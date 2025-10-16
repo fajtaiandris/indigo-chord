@@ -7,7 +7,7 @@
 </script>
 
 <div class="settings">
-  <button on:click={toggleMute} data-state={isMuted && 'on'}>mute</button>
+  <button on:click={toggleMute} data-state={isMuted ? 'on' : 'off'}>mute</button>
   <button
     on:click={play}
     data-state={$isPlaying && 'playing'}

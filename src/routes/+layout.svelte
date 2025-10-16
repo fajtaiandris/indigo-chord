@@ -17,7 +17,7 @@
 
 <header>
   <span class="brand | font-pixel">indigo_chord</span>
-  <a href="https://github.com/fajtaiandris/indigo-chord"><button class="button--white">github</button></a>
+  <a href="https://github.com/fajtaiandris/indigo-chord"><button class="button--white button--flat">github</button></a>
 </header>
 <main>
   <slot />

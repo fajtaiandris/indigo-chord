@@ -57,6 +57,18 @@
     position: relative;
     inline-size: calc(var(--white-w) * 7 * var(--octaves));
     user-select: none;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 6px 8px var(--black);
+      border-top: 2px solid var(--black);
+      border-left: 2px solid var(--black);
+      border-right: 2px solid var(--black);
+      z-index: 2;
+      pointer-events: none;
+    }
   }
 
   .keys__rail {
