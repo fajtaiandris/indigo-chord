@@ -40,7 +40,7 @@
 <div class="keyboard">
   <div class="keyboard__top">
     {#if showTutorialTrigger}
-      <a href="./tutorial" class="tutorial-button"><button class="button--white">teach me</button></a>
+      <a href="./tutorial" class="tutorial-button"><button class="button--grey">teach me &gt;</button></a>
     {/if}
     <Display {name} {type} />
   </div>
@@ -74,7 +74,6 @@
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     gap: 1rem;
-    align-items: top;
     width: 100%;
     max-width: 100%;
     overflow: scroll;

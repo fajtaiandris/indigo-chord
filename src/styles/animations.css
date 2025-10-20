@@ -1,0 +1,33 @@
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.2s;
+}
+
+::view-transition-new(tutorial) {
+  animation: slide-in-from-right 200ms ease-out;
+}
+
+::view-transition-old(tutorial) {
+  animation: slide-out-to-left 200ms ease-out;
+}
+
+@keyframes slide-in-from-right {
+from {
+    transform: translatex(100vw);
+  }
+  to {
+    transform: translatex(0);
+  }
+}
+
+@keyframes slide-out-to-left {
+  from {
+    transform: translatex(0);
+  }
+  to {
+    transform: translatex(-100vw);
+  }
+}

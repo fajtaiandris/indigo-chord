@@ -13,7 +13,7 @@
         <p>This interactive guide is meant to walk you through what chords are and how you can name them</p>
         <p>Currently, though, it's under construction.</p>
         <div class="tutorial__buttons">
-          <a href="./"><button class="button--flat">back</button></a>
+          <a href="./"><button class="button--grey button--flat">&lt; back</button></a>
         </div>
     </div>
     <Keyboard />
@@ -25,8 +25,8 @@
         background-color: var(--contrast);
         color: var(--contrast-foreground);
         padding: 1rem;
-        border-radius: 10px;
-        border: 1px solid var(--almost-black);
+        border: var(--dark-grey) 1px solid;
+        box-shadow: 4px 4px 0px var(--almost-black);
     }
 
     .tutorial__buttons {
