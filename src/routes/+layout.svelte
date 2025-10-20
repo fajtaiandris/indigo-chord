@@ -3,6 +3,7 @@
   import { browser } from '$app/env';
   import { page } from '$app/stores';
   import '../styles/app.css';
+  import { beforeNavigate } from '$app/navigation'
 
   let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 
@@ -13,6 +14,16 @@
       analyticsId
     });
   }
+
+  beforeNavigate(() => {
+    if (!document.startViewTransition) return;
+
+    return new Promise((resolve) => {
+      document.startViewTransition(async () => {
+        resolve(null);
+      });
+    });
+  });
 </script>
 
 <header>

@@ -5,6 +5,7 @@
   import Display from './Display.svelte';
   import ConfigButtons from './ConfigButtons.svelte';
 
+  export let showTutorialTrigger: boolean = false;
   let notes: number[] = [];
   let isMuted = false;
   let current: ReturnType<typeof playMidi> | null = null;
@@ -37,7 +38,12 @@
 </script>
 
 <div class="keyboard">
-  <Display {name} {type} />
+  <div class="keyboard__top">
+    {#if showTutorialTrigger}
+      <a href="./tutorial" class="tutorial-button"><button class="button--white">teach me</button></a>
+    {/if}
+    <Display {name} {type} />
+  </div>
   <div class="keyboard__bottom">
     <ConfigButtons {isMuted} {toggleMute} {play} />
     <div class="keys-wrapper">
@@ -48,6 +54,7 @@
 
 <style>
   .keyboard {
+    view-transition-name: keyboard;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,6 +65,23 @@
     background-color: var(--almost-black);
     border: 6px outset black;
     border-radius: 4px;
+  }
+
+  .keyboard__top {
+    display: grid;
+    grid-template-areas: "button display";
+    grid-template-columns: 1fr 2fr;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+    align-items: top;
+    width: 100%;
+    max-width: 100%;
+    overflow: scroll;
+  }
+
+  @media (max-width: 700px) {
+     
   }
 
   .keyboard__bottom {
@@ -75,7 +99,17 @@
     justify-content: center;
   }
 
+  .tutorial-button {
+    grid-area: button;
+    width: fit-content;
+  }
+
   @media (max-width: 700px) {
+    .keyboard__top{
+      grid-template-areas: "display button";
+      grid-template-columns: auto fit-content(20px);
+    }
+
     .keyboard__bottom {
       flex-direction: column;
     }

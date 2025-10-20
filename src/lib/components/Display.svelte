@@ -17,12 +17,11 @@
 
 <style>
   .display {
+    grid-area: display;
     color: var(--neon-blue);
     background-color: var(--primary);
     width: 100%;
     max-width: 300px;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

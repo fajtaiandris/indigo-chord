@@ -13,11 +13,50 @@
   box-sizing: border-box;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.2s;
+}
+
+::view-transition-new(tutorial) {
+  animation: slide-in-from-left 300ms ease-out;
+}
+
+::view-transition-old(tutorial) {
+  animation: slide-out-to-right 200ms ease-out;
+}
+
+@keyframes slide-in-from-left {
+  from {
+    transform: rotateX(180deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out-to-right {
+  from {
+    transform: translatex(0);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(100vw);
+    opacity: 1;
+  }
+}
+
 body {
   min-height: 100vh;
   margin: 0;
   background-color: var(--default);
-  color: var(--default-foreground)
+  color: var(--default-foreground);
+  text-wrap: pretty;
 }
 
 main {
