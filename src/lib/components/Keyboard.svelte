@@ -108,11 +108,6 @@
     justify-content: center;
   }
 
-  .tutorial-button {
-    grid-area: button;
-    width: fit-content;
-  }
-
   @media (max-width: 700px) {
     .keyboard__top{
       grid-template-areas: "display button";
