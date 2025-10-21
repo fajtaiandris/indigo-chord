@@ -14,5 +14,7 @@
   <aside role="note" class="visible-on-mobile-portrait">
     Rotate your device to landscape mode for a better experience.
   </aside>
-  <Keyboard showTutorialTrigger/>
+  <Keyboard>
+    <a slot="top" href="./tutorial" class="tutorial-button"><button class="button--grey">teach me &gt;</button></a>
+  </Keyboard>
 </section>

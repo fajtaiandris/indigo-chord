@@ -5,7 +5,6 @@
   import Display from './Display.svelte';
   import ConfigButtons from './ConfigButtons.svelte';
 
-  export let showTutorialTrigger: boolean = false;
   let notes: number[] = [];
   let isMuted = false;
   let current: ReturnType<typeof playMidi> | null = null;
@@ -38,11 +37,11 @@
 </script>
 
 <div class="keyboard">
-  <div class="keyboard__top">
-    {#if showTutorialTrigger}
-      <a href="./tutorial" class="tutorial-button"><button class="button--grey">teach me &gt;</button></a>
-    {/if}
-    <Display {name} {type} />
+  <div class="keyboard__top" data-contains-display-only={!$$slots.top}>
+    <slot name="top"/>
+    <div class="keyboard__display">
+      <Display {name} {type} />
+    </div>
   </div>
   <div class="keyboard__bottom">
     <ConfigButtons {isMuted} {toggleMute} {play} />
@@ -79,8 +78,19 @@
     overflow: scroll;
   }
 
-  @media (max-width: 700px) {
-     
+  .keyboard__display {
+    grid-area: display;
+    display: flex;
+    justify-content: start;
+  }
+
+  .keyboard__top[data-contains-display-only="true"] {
+    grid-template-areas: "display";
+    grid-template-columns: auto;
+
+    & .keyboard__display {
+      justify-content: center;
+    }
   }
 
   .keyboard__bottom {

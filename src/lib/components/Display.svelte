@@ -17,7 +17,6 @@
 
 <style>
   .display {
-    grid-area: display;
     color: var(--neon-blue);
     background-color: var(--primary);
     width: 100%;
